@@ -4,98 +4,93 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Listing App</title>
   <style>
-      body {
-          font-family: Arial, sans-serif;
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-      }
-      .container {
-          max-width: 1200px;
-          margin: 20px auto;
-          padding: 20px;
-      }
-      .header {
-          text-align: center;
-          margin-bottom: 20px;
-      }
-      .product {
-          display: inline-block;
-          width: 250px;
-          margin: 10px;
-          padding: 15px;
-          border: 1px solid #ccc;
-          text-align: center;
-          border-radius: 5px;
-      }
-      .product img {
-          max-width: 100%;
-          height: auto;
-      }
-      .filter {
-          margin-bottom: 20px;
-      }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .products-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .product-card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .product-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .product-card h2 {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+
+    .product-card p {
+      margin: 5px 0;
+    }
+
+    .product-card .price {
+      font-weight: bold;
+      color: #333;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header class="header">
-      <h1>Product Listing</h1>
-    </header>
-    <div class="filter">
-      <select id="categoryDropdown">
-        <option value="all">All Categories</option>
-        <option value="electronics">Electronics</option>
-        <option value="apparel">Apparel</option>
-      </select>
-      <input type="text" id="searchBar" placeholder="Search products">
-    </div>
-    <div id="productList">
-      <div class="product" data-category="electronics">
-        <img src="laptop.jpg" alt="Laptop">
-        <h2>Laptop</h2>
-        <p>$899</p>
-        <p>A high-performance laptop.</p>
-      </div>
-      <div class="product" data-category="electronics">
-        <img src="smartphone.jpg" alt="Smartphone">
-        <h2>Smartphone</h2>
-        <p>$699</p>
-        <p>Latest smartphone with advanced features.</p>
-      </div>
-      <div class="product" data-category="apparel">
-        <img src="shoes.jpg" alt="Shoes">
-        <h2>Shoes</h2>
-        <p>$49</p>
-        <p>Comfortable running shoes.</p>
-      </div>
-    </div>
-  </div>
-  <script>
-      document.getElementById('categoryDropdown').addEventListener('change', function() {
-          const category = this.value;
-          const products = document.querySelectorAll('.product');
-          products.forEach(product => {
-              if (category === 'all' || product.getAttribute('data-category') === category) {
-                  product.style.display = 'inline-block';
-              } else {
-                  product.style.display = 'none';
-              }
-          });
-      });
+  <header>
+    <h1>Product Listing</h1>
+  </header>
 
-      document.getElementById('searchBar').addEventListener('input', function() {
-          const keyword = this.value.toLowerCase();
-          const products = document.querySelectorAll('.product');
-          products.forEach(product => {
-              const productName = product.querySelector('h2').textContent.toLowerCase();
-              if (productName.includes(keyword)) {
-                  product.style.display = 'inline-block';
-              } else {
-                  product.style.display = 'none';
-              }
-          });
-      });
-  </script>
+  <main>
+    <div class="products-container">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150" alt="Product">
+        <h2>Product 1</h2>
+        <p>Description of Product 1.</p>
+        <p class="price">$10.00</p>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150" alt="Product">
+        <h2>Product 2</h2>
+        <p>Description of Product 2.</p>
+        <p class="price">$15.00</p>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150" alt="Product">
+        <h2>Product 3</h2>
+        <p>Description of Product 3.</p>
+        <p class="price">$20.00</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2023 Product Listing App</p>
+  </footer>
 </body>
 </html>
