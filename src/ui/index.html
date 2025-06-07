@@ -8,89 +8,84 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
-
-    header {
-      background-color: #333;
-      color: #fff;
+    .container {
+      max-width: 1200px;
+      margin: auto;
       padding: 20px;
-      text-align: center;
     }
-
-    .products-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
       gap: 20px;
-      padding: 20px;
+      justify-content: center;
     }
-
-    .product-card {
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 15px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    .product {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      width: 250px;
+      padding: 10px;
       text-align: center;
+      background-color: #f9f9f9;
     }
-
-    .product-card img {
-      max-width: 100%;
+    .product img {
+      width: 100%;
       height: auto;
-      border-radius: 8px;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 10px;
     }
-
-    .product-card h2 {
-      font-size: 20px;
-      margin: 10px 0;
-    }
-
-    .product-card p {
-      margin: 5px 0;
-    }
-
-    .product-card .price {
+    .product-name {
+      font-size: 18px;
       font-weight: bold;
       color: #333;
     }
-
-    footer {
-      background-color: #333;
-      color: #fff;
-      padding: 10px;
-      text-align: center;
+    .product-price {
+      color: #888;
+      font-size: 16px;
+    }
+    .buy-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .buy-button:hover {
+      background-color: #45a049;
     }
   </style>
 </head>
 <body>
-  <header>
+  <div class="container">
     <h1>Product Listing</h1>
-  </header>
-
-  <main>
-    <div class="products-container">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/150" alt="Product">
-        <h2>Product 1</h2>
-        <p>Description of Product 1.</p>
-        <p class="price">$10.00</p>
+    <div class="product-grid">
+      <!-- Sample Product 1 -->
+      <div class="product">
+        <img src="https://via.placeholder.com/250" alt="Product 1">
+        <div class="product-name">Product 1</div>
+        <div class="product-price">$19.99</div>
+        <button class="buy-button">Buy Now</button>
       </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/150" alt="Product">
-        <h2>Product 2</h2>
-        <p>Description of Product 2.</p>
-        <p class="price">$15.00</p>
+      <!-- Sample Product 2 -->
+      <div class="product">
+        <img src="https://via.placeholder.com/250" alt="Product 2">
+        <div class="product-name">Product 2</div>
+        <div class="product-price">$29.99</div>
+        <button class="buy-button">Buy Now</button>
       </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/150" alt="Product">
-        <h2>Product 3</h2>
-        <p>Description of Product 3.</p>
-        <p class="price">$20.00</p>
+      <!-- Sample Product 3 -->
+      <div class="product">
+        <img src="https://via.placeholder.com/250" alt="Product 3">
+        <div class="product-name">Product 3</div>
+        <div class="product-price">$39.99</div>
+        <button class="buy-button">Buy Now</button>
       </div>
     </div>
-  </main>
-
-  <footer>
-    <p>© 2023 Product Listing App</p>
-  </footer>
+  </div>
 </body>
 </html>
