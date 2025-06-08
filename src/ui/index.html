@@ -1,71 +1,79 @@
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Listing</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 10px;
-    }
-    .product {
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      background-color: #fff;
-      padding: 15px;
-      margin: 15px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .product img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 5px;
-    }
-    .product h2 {
-      font-size: 18px;
-      color: #333;
-    }
-    .product p {
-      font-size: 16px;
-      color: #666;
-    }
-    .product .price {
-      font-size: 20px;
-      font-weight: bold;
-      color: #2c3e50;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Listing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+        .product {
+            border: 1px solid #ddd;
+            background-color: #fff;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 15px;
+            width: 250px;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .product h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .product .price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #28a745;
+        }
+        .product .description {
+            font-size: 14px;
+            color: #6c757d;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Product Listing</h1>
-    <div class="product">
-      <img src="https://via.placeholder.com/150" alt="Product Image">
-      <h2>Product 1</h2>
-      <p>Description of Product 1. This is a brief overview.</p>
-      <p class="price">$29.99</p>
-    </div>
+    <header>
+        <h1>Product Listing</h1>
+    </header>
 
-    <div class="product">
-      <img src="https://via.placeholder.com/150" alt="Product Image">
-      <h2>Product 2</h2>
-      <p>Description of Product 2. This is a brief overview.</p>
-      <p class="price">$49.99</p>
+    <div class="product-list">
+        <div class="product">
+            <img src="https://via.placeholder.com/250" alt="Product 1">
+            <h3>Product 1</h3>
+            <p class="price">$20.00</p>
+            <p class="description">This is a sample description for Product 1.</p>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/250" alt="Product 2">
+            <h3>Product 2</h3>
+            <p class="price">$35.00</p>
+            <p class="description">This is a sample description for Product 2.</p>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/250" alt="Product 3">
+            <h3>Product 3</h3>
+            <p class="price">$15.00</p>
+            <p class="description">This is a sample description for Product 3.</p>
+        </div>
     </div>
-
-    <div class="product">
-      <img src="https://via.placeholder.com/150" alt="Product Image">
-      <h2>Product 3</h2>
-      <p>Description of Product 3. This is a brief overview.</p>
-      <p class="price">$19.99</p>
-    </div>
-  </div>
 </body>
 </html>
