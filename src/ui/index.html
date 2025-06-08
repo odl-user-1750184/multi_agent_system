@@ -2,90 +2,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Listing App</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 20px;
-    }
-    h1 {
-      text-align: center;
-      color: #333;
-    }
-    .product-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .product {
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      width: 250px;
-      padding: 10px;
-      text-align: center;
-      background-color: #f9f9f9;
-    }
-    .product img {
-      width: 100%;
-      height: auto;
-      border-bottom: 1px solid #ddd;
-      margin-bottom: 10px;
-    }
-    .product-name {
-      font-size: 18px;
-      font-weight: bold;
-      color: #333;
-    }
-    .product-price {
-      color: #888;
-      font-size: 16px;
-    }
-    .buy-button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .buy-button:hover {
-      background-color: #45a049;
-    }
-  </style>
+  <title>Product Manager</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
-    <h1>Product Listing</h1>
-    <div class="product-grid">
-      <!-- Sample Product 1 -->
-      <div class="product">
-        <img src="https://via.placeholder.com/250" alt="Product 1">
-        <div class="product-name">Product 1</div>
-        <div class="product-price">$19.99</div>
-        <button class="buy-button">Buy Now</button>
-      </div>
-      <!-- Sample Product 2 -->
-      <div class="product">
-        <img src="https://via.placeholder.com/250" alt="Product 2">
-        <div class="product-name">Product 2</div>
-        <div class="product-price">$29.99</div>
-        <button class="buy-button">Buy Now</button>
-      </div>
-      <!-- Sample Product 3 -->
-      <div class="product">
-        <img src="https://via.placeholder.com/250" alt="Product 3">
-        <div class="product-name">Product 3</div>
-        <div class="product-price">$39.99</div>
-        <button class="buy-button">Buy Now</button>
-      </div>
-    </div>
+    <h1>Product Manager App</h1>
+    <form id="productForm">
+      <label>Product Name:</label>
+      <input type="text" id="productName" required>
+      <label>Price:</label>
+      <input type="number" step="0.01" id="productPrice" required>
+      <label>Description:</label>
+      <textarea id="productDescription" required></textarea>
+      <button type="submit">Add Product</button>
+    </form>
+    <h2>Product List</h2>
+    <table id="productTable" border="1">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Product rows will be added dynamically -->
+      </tbody>
+    </table>
   </div>
+  <script src="app.js"></script>
 </body>
 </html>

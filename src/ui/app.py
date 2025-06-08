@@ -87,6 +87,7 @@ def multi_agent():
             try:
                 st.session_state.multi_agent_history.append({"role": "user", "message": user_input})
                 with st.spinner("Agents are collaborating..."):
+                    print('user_input_given')
                     result = asyncio.run(run_multi_agent(user_input))
                     # Fix: Extract messages from the result dictionary and map content to message
                     for response in result["messages"]:
