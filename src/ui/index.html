@@ -1,25 +1,86 @@
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Listing App</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products Showcase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        .product-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: calc(33.33% - 20px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin: 20px 0 10px;
+        }
+        .product-description {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .product-price {
+            font-size: 16px;
+            color: #009688;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Product Listing</h1>
-  </header>
-  
-  <main>
-    <div id="product-list">
-      <!-- Products will be dynamically displayed -->
+    <div class="container">
+        <h1>Product Showcase</h1>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/150" alt="Product Image">
+                <div class="product-name">Product Name 1</div>
+                <div class="product-description">This is a description of Product 1.</div>
+                <div class="product-price">$10.00</div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/150" alt="Product Image">
+                <div class="product-name">Product Name 2</div>
+                <div class="product-description">This is a description of Product 2.</div>
+                <div class="product-price">$20.00</div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/150" alt="Product Image">
+                <div class="product-name">Product Name 3</div>
+                <div class="product-description">This is a description of Product 3.</div>
+                <div class="product-price">$30.00</div>
+            </div>
+        </div>
     </div>
-  </main>
-
-  <footer>
-    <p>© 2023 Product App</p>
-  </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
