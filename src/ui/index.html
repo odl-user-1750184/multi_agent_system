@@ -1,104 +1,152 @@
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Display App</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        .product-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .product {
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 10px;
-            text-align: center;
-            transition: box-shadow 0.3s ease-in-out;
-        }
-
-        .product:hover {
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .product img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .product-name {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin: 10px 0 5px 0;
-        }
-
-        .product-description {
-            font-size: 0.9rem;
-            color: #555;
-        }
-
-        .product-price {
-            font-size: 1.1rem;
-            color: green;
-            margin: 8px 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Showcase</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+    .product {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      text-align: center;
+      width: 300px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .product:hover {
+      transform: scale(1.05);
+    }
+    .product img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    .product h2 {
+      margin: 10px 0;
+      font-size: 1.5em;
+    }
+    .product p {
+      font-size: 1em;
+      color: #555;
+    }
+    .product button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .product button:hover {
+      background-color: #0056b3;
+    }
+    #modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+    #modal-content {
+      background: white;
+      color: black;
+      padding: 20px;
+      border-radius: 5px;
+      max-width: 400px;
+      text-align: center;
+    }
+    #modal button {
+      background-color: red;
+      color: white;
+    }
+  </style>
 </head>
-
 <body>
-    <h1 style="text-align: center;">Product List</h1>
-    <div class="product-container" id="products"></div>
+  <div class="container" id="product-list">
+    <!-- Product items will be injected here dynamically -->
+  </div>
+  
+  <!-- Modal for Detailed Product Information -->
+  <div id="modal">
+    <div id="modal-content">
+      <h2 id="modal-title"></h2>
+      <p id="modal-description"></p>
+      <button onclick="closeModal()">Close</button>
+    </div>
+  </div>
 
-    <script>
-        // Sample product data (can be replaced with API call)
-        const products = [
-            {
-                name: "Laptop",
-                description: "A high-performance laptop.",
-                price: "$999",
-                image: "https://via.placeholder.com/150"
-            },
-            {
-                name: "Smartphone",
-                description: "A premium smartphone.",
-                price: "$699",
-                image: "https://via.placeholder.com/150"
-            },
-            {
-                name: "Headphones",
-                description: "Noise-cancelling headphones.",
-                price: "$199",
-                image: "https://via.placeholder.com/150"
-            }
-        ];
+  <script>
+    // Sample Product Data
+    const products = [
+      {
+        name: "Product 1",
+        price: "$20",
+        description: "This is the description for Product 1.",
+        image: "https://via.placeholder.com/300x200",
+      },
+      {
+        name: "Product 2",
+        price: "$30",
+        description: "This is the description for Product 2.",
+        image: "https://via.placeholder.com/300x200",
+      },
+      {
+        name: "Product 3",
+        price: "$40",
+        description: "This is the description for Product 3.",
+        image: "https://via.placeholder.com/300x200",
+      },
+    ];
 
-        // Render products in HTML
-        const productContainer = document.getElementById('products');
+    const productList = document.getElementById('product-list');
+    
+    // Function to Render Products
+    function renderProducts() {
+      products.forEach((product, index) => {
+        const productItem = document.createElement('div');
+        productItem.className = "product";
+        productItem.innerHTML = `
+          <img src="${product.image}" alt="${product.name}">
+          <h2>${product.name} - ${product.price}</h2>
+          <p>${product.description.slice(0, 50)}...</p>
+          <button onclick="showProductDetails(${index})">View Details</button>
+        `;
+        productList.appendChild(productItem);
+      });
+    }
 
-        products.forEach(product => {
-            const productDiv = document.createElement('div');
-            productDiv.className = 'product';
-            productDiv.innerHTML = `
-                <img src="${product.image}" alt="${product.name}">
-                <div class="product-name">${product.name}</div>
-                <div class="product-description">${product.description}</div>
-                <div class="product-price">${product.price}</div>
-            `;
-            productContainer.appendChild(productDiv);
-        });
-    </script>
+    // Function to Show Modal with Product Details
+    function showProductDetails(index) {
+      const product = products[index];
+      document.getElementById('modal-title').innerText = product.name + ' - ' + product.price;
+      document.getElementById('modal-description').innerText = product.description;
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    // Function to Close Modal
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+
+    // Initialize the App
+    renderProducts();
+  </script>
 </body>
-
 </html>
