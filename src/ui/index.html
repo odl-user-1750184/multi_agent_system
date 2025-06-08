@@ -3,24 +3,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Display App</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Product Display</h1>
-        <input type="search" id="searchBar" placeholder="Search products..." />
-        <select id="categoryFilter">
-            <option value="all">All Categories</option>
-            <option value="electronics">Electronics</option>
-            <option value="clothes">Clothes</option>
-            <option value="furniture">Furniture</option>
-        </select>
+        <h1>Our Products</h1>
     </header>
-    <main>
-        <div id="productList" class="product-grid">
-            <!-- Product cards will be dynamically inserted here -->
-        </div>
+    <main id="product-container">
+        <!-- Products will be dynamically loaded here -->
     </main>
-    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2023 Product Display App</p>
+    </footer>
+    <script src="app.js"></script>
 </body>
 </html>
