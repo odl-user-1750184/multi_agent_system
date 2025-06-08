@@ -1,4 +1,5 @@
 #!/bin/bash
+source /c/LabFiles/Capstone-Project/src/ui/.env
 
 # Ensure the script stops if there's an error
 set -e
