@@ -1,23 +1,35 @@
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Listing App</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Showcase</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Product Listing</h1>
-    <input type="text" id="search" placeholder="Search products...">
-    <select id="sort">
-      <option value="name">Sort by Name</option>
-      <option value="price_asc">Sort by Price (Low to High)</option>
-      <option value="price_desc">Sort by Price (High to Low)</option>
-    </select>
-  </header>
-  <main>
-    <div id="product-gallery"></div>
-  </main>
-  <script src="app.js"></script>
+    <header>
+        <h1>Product Showcase</h1>
+    </header>
+    <main>
+        <section class="product-grid" id="product-grid">
+            <!-- Sample Products -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/150" alt="Product 1">
+                <h2>Product 1</h2>
+                <p>This is an amazing product that you would love.</p>
+                <span>$25.00</span>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/150" alt="Product 2">
+                <h2>Product 2</h2>
+                <p>This is another great product you might enjoy.</p>
+                <span>$30.00</span>
+            </div>
+            <!-- Add more products here -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Product Showcase</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
