@@ -1,33 +1,155 @@
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Store</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calculator {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .display {
+            width: 100%;
+            height: 60px;
+            margin-bottom: 15px;
+            text-align: right;
+            padding: 10px;
+            font-size: 24px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            outline: none;
+            background-color: #f9f9f9;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .button {
+            height: 50px;
+            background-color: #007BFF;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .button.operation {
+            background-color: #FF5722;
+        }
+
+        .button.operation:hover {
+            background-color: #d13e15;
+        }
+
+        .history {
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            max-height: 150px;
+            overflow: auto;
+            font-size: 14px;
+        }
+
+        .history-item {
+            margin-bottom: 5px;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Product Store</h1>
-  </header>
-  <main>
-    <section class="product-grid">
-      <div class="product-card">
-        <img src="image1.jpg" alt="Product 1">
-        <h2>Product 1</h2>
-        <p class="price">$10.00</p>
-        <p>A high-quality product.</p>
-      </div>
-      <div class="product-card">
-        <img src="image2.jpg" alt="Product 2">
-        <h2>Product 2</h2>
-        <p class="price">$20.00</p>
-        <p>Premium product with great value.</p>
-      </div>
-      <!-- Add more products here -->
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2023 Product Store. All rights reserved.</p>
-  </footer>
+    <div class="calculator">
+        <input type="text" id="display" class="display" readonly>
+        <div class="buttons">
+            <button class="button" onclick="appendValue('7')">7</button>
+            <button class="button" onclick="appendValue('8')">8</button>
+            <button class="button" onclick="appendValue('9')">9</button>
+            <button class="button operation" onclick="appendValue('/')">÷</button>
+            <button class="button" onclick="appendValue('4')">4</button>
+            <button class="button" onclick="appendValue('5')">5</button>
+            <button class="button" onclick="appendValue('6')">6</button>
+            <button class="button operation" onclick="appendValue('*')">×</button>
+            <button class="button" onclick="appendValue('1')">1</button>
+            <button class="button" onclick="appendValue('2')">2</button>
+            <button class="button" onclick="appendValue('3')">3</button>
+            <button class="button operation" onclick="appendValue('-')">-</button>
+            <button class="button" onclick="appendValue('0')">0</button>
+            <button class="button" onclick="appendValue('.')">.</button>
+            <button class="button operation" onclick="calculate()">=</button>
+            <button class="button operation" onclick="appendValue('+')">+</button>
+            <button class="button" onclick="clearDisplay()">C</button>
+        </div>
+        <div id="history" class="history"></div>
+    </div>
+
+    <script>
+        let history = [];
+
+        function appendValue(value) {
+            const display = document.getElementById('display');
+            display.value += value;
+        }
+
+        function clearDisplay() {
+            const display = document.getElementById('display');
+            display.value = '';
+        }
+
+        function calculate() {
+            const display = document.getElementById('display');
+            try {
+                const result = eval(display.value);
+                const operation = `${display.value} = ${result}`;
+                display.value = result;
+                updateHistory(operation);
+            } catch (error) {
+                alert("Invalid operation.");
+            }
+        }
+
+        function updateHistory(operation) {
+            const historyContainer = document.getElementById('history');
+            if (history.length >= 10) {
+                history.shift(); // Remove oldest entry
+            }
+            history.push(operation);
+            renderHistory();
+        }
+
+        function renderHistory() {
+            const historyContainer = document.getElementById('history');
+            historyContainer.innerHTML = '';
+            history.forEach(item => {
+                const historyItem = document.createElement('div');
+                historyItem.className = 'history-item';
+                historyItem.textContent = item;
+                historyContainer.appendChild(historyItem);
+            });
+        }
+    </script>
 </body>
 </html>
