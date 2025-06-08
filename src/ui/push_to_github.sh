@@ -10,4 +10,4 @@ git add index.html
 git commit -m "Auto-update: index.html pushed from multi-agent system"
 
 # Push to the remote repository
-git push https://$GITHUB_USERNAME:$GITHUB_PAT@github.com/$GITHUB_REPO_URL origin main  # change 'main' to 'master' or your branch name if needed
+git push https://$GITHUB_USERNAME:$GITHUB_PAT@github.com/odl-user-1750184/azure_multi-agent.git main
